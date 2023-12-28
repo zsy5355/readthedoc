@@ -34,3 +34,15 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 #html_theme = 'alabaster'
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
+
+import os
+import sphinx_rtd_theme
+
+# 使用环境变量 READTHEDOCS_OUTPUT 设置输出路径
+output_path = os.environ.get('READTHEDOCS_OUTPUT', '_build')
+html_path = os.path.join(output_path, 'html')
+
+# 设置输出路径
+html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+html_static_path = [os.path.join(html_path, 'static')]
+
